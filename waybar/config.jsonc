@@ -1,0 +1,120 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "sway/workspaces",
+        "custom/music"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "custom/weather",
+        "cpu",
+        "memory",
+        "pulseaudio",
+        "network",
+        "battery",
+		"custom/notif",
+        "custom/power"
+    ],
+    // Modules configuration
+    "sway/workspaces": {
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "focused": "",
+            "default": ""
+        }
+    },
+	"custom/music": {
+		"exec": "~/.config/waybar/scripts/music.sh",
+		"interval": 3,
+		"return-type": "json",
+		"escape": true,
+		"tooltip": true,
+		"on-click": "playerctl play-pause",
+		"on-scroll-up": "playerctl previous",
+		"on-scroll-down": "playerctl next",
+		"max-length": 9999  // Leave text trimming to script
+	},
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%H:%M %d/%m/%y}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{signalStrength}% ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+		"on-click": "~/.config/rofi/wifi/wifi.sh"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "custom/weather": {
+		"exec": "~/.config/waybar/scripts/weather.sh",
+		"interval": 60,
+		"return-type": "json",
+		"tooltip": true
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 50,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+	"custom/notif": {
+		"format": "{}",
+		"tooltip": false,
+		"on-click": "swaync-client -t",
+		"exec": "swaync-client -c",
+		"interval": 10
+	},
+    "custom/power": {
+        "format" : "{}",
+		"tooltip": true,
+		"on-click": "~/.config/wlogout/launch.sh",
+		"exec": "echo '{\"text\":\"⏻\",\"tooltip\":\"Power\"}'",
+		"return-type": "json"
+    }
+}

@@ -1,0 +1,8 @@
+* {
+	bg:	#393552;
+	fg:	#e0cbed;
+	bgAlt: #232136;
+	button: #9ccfd8;
+	background-color: @bg;
+	text-color: @fg;
+}

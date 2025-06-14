@@ -1,0 +1,156 @@
+@define-color surface rgba(42, 39, 63, 0.85);
+@define-color text #e0def4;
+@define-color love #eb6f92;
+@define-color gold #f6c177;
+@define-color rose #ea9a97;
+@define-color pine #3e8fb0;
+@define-color foam #9ccfd8;
+@define-color iris #c4a7e7;
+@define-color leaf #95b1ac;
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+}
+
+#waybar {
+	background: transparent;
+	color: @text;
+}
+
+/* modules */
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#workspaces,
+#custom-music,
+#custom-power,
+#custom-notif,
+#custom-weather {
+	background-color: @surface;
+	color: @text;
+	border-radius: 10px;
+	padding: 0.5rem 1rem;
+	margin: 5px 5px 5px 5px;
+}
+
+#workspaces {
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-left: 10px;
+}
+
+#workspaces * {
+	font-size: 0px;
+}
+
+#workspaces button {
+	background-color: @surface;
+	color: @iris;
+	border-radius: 100%;
+	min-height: 14px;
+	min-width: 14px;
+	margin: 5px 8px;
+	padding: 0px;
+	transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.68);
+	box-shadow: rgba(0, 0, 0, 0.288) 2px 2px 5px 2px;
+}
+
+#workspaces button:hover {
+	background-color: @foam;
+}
+
+#workspaces button.focused {
+	background-color: @iris;
+	background-size: 400% 400%;
+	transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.682);
+}
+
+#custom-music {
+	color: @leaf;
+}
+
+#custom-weather {
+	color: @text;
+}
+
+#custom-weather.mild {
+	color: @gold;
+}
+
+#custom-weather.hot {
+	color: @love;
+}
+
+#custom-weather.cold {
+	color: @foam;
+}
+
+#cpu {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	margin-right: 0px;
+	padding-right: 5px;
+	color: @leaf;
+}
+
+#memory {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	margin-left: 0px;
+	padding-left: 5px;
+	color: @leaf;
+}
+
+#pulseaudio {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	margin-right: 0px;
+	padding-right: 5px;
+	color: @gold;
+}
+
+#network {
+	border-radius: 0;
+	margin-right: 0px;
+	margin-left: 0px;
+	padding-right: 5px;
+	padding-left: 5px;
+	color: @foam;
+}
+
+#battery {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	margin-left: 0px;
+	padding-left: 5px;
+	color: @pine;
+}
+
+#battery.charging {
+	color: @leaf;
+}
+
+#battery.warning:not(.charging) {
+	color: @rose;
+}
+
+#battery.critical:not(.charging) {
+	color: @love;
+}
+
+#custom-notif {
+	color: @iris;
+}
+
+#custom-power {
+	margin-right: 10px;
+	color: @love;
+}

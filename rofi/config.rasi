@@ -1,0 +1,117 @@
+configuration {
+	modes: ",drun,run,filebrowser,window";
+	show-icons: true;
+	sidebar-mode: false;
+	scroll-method: 0;
+	max-history-size: 30;
+	window-thumbnail: true;
+	steal-focus: true;
+	display-window: "Windows";
+	display-run: "Run";
+	display-drun: "Apps";
+	display-filebrowser: "Files";
+
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
+
+@theme "./theme/style.rasi"
+
+mainbox { children: [ mode-switcher, inputbar, listview ]; }
+
+window {
+	transparency: "real";
+	background: #cc1c1c1c;
+	width: 900px;
+	height: 520px;
+	border-radius: 10px;
+	border: 3px;
+	border-color: @bgAlt;
+}
+
+inputbar {
+	children: [ entry ];
+	expand: false;
+	padding: 5px 10px 5px 10px;
+}
+
+prompt {
+	enabled: true;
+	background-color: @bgAlt;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+entry {
+	placeholder: "Search";
+	expand: true;
+	background-color: @bgAlt;
+	padding: 15px;
+	border-radius: 10px;
+}
+
+listview {
+	columns: 2;
+	cycle: true;
+	dynamic: true;
+	layout:  vertical;
+	scrollbar: false;
+	padding: 5px;
+}
+
+element {
+	orientation: vertical;
+	border-radius: 10px;
+	margin: 5px;
+	background-color: @bgAlt;
+	orientation: horizontal;
+	children: [	element-icon, element-text ];
+	spacing: 5px;
+}
+
+element-icon {
+	size: 2em;
+	background-color: inherit;
+	margin: 10px;
+}
+
+element-text {
+	expand: true;
+	margin: 10px;
+	vertical-align: 0.5;
+	background-color:  inherit;
+	text-color: inherit;
+}
+
+element selected {
+	background-color: @fg;
+	text-color: @bgAlt;
+	border-radius: 10px;
+}
+
+mode-switcher {
+	spacing: 3px;
+	border-radius: 10px;
+	background-color: inherit;
+	text-color: inherit;
+	margin: 10px 10px 5px 10px;
+}
+
+button {
+	padding: 10px;
+	background-color: @bgAlt;
+	vertical-align: 0.5;
+	horizontal-align: 0.5;
+}
+
+button selected {
+	padding: 10px;
+	background-color: @fg;
+	text-color: @bgAlt;
+}
