@@ -1,4 +1,27 @@
-# My Sway configs.
+# My SwayFX config
+
+## Specs:
+```sh
+- Distro:  EndeavourOS Mercury
+- WM: SwayFX
+- Shell: Bash
+
+- PC: Samsung Galaxy Book 2 (750XED)
+- CPU: Intel core i5
+- GPU: Intel iRIS xe
+- Resolution: 1920x1080
+
+- Terminal: Kitty
+- Theme: Rosé Pine Moon
+- Editor: NeoVim
+```
+
+## Showcase:
+[<img src="images/20250614_17h00m26s_grim.png" alt="Rice Preview" width="400px"/>](./images/20250614_17h00m26s_grim.png)
+[<img align="left" src="images/20250614_17h01m30s_grim.png" alt="Rice Preview" width="400px"/>](./images/20250614_17h01m30s_grim.png)
+[<img align="right" src="images/20250614_17h02m21s_grim.png" alt="Rice Preview" width="400px"/>](./images/20250614_17h02m21s_grim.png)
+[<img align="left" src="images/20250614_17h02m51s_grim.png" alt="Rice Preview" width="400px"/>](./images/20250614_17h02m51s_grim.png)
+[<img align="right" src="images/20250614_17h02m58s_grim.png" alt="Rice Preview" width="400px"/>](./images/20250614_17h02m58s_grim.png)
 
 ## Credits:
 All these people gave me much inspiration (and code) for my config. Some of my
