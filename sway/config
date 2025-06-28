@@ -21,12 +21,21 @@ set $term kitty
 set $menu rofi -show drun
 
 ### Output configuration
-# WARN: Insert path: (background is in images directory)
-output * bg /path/to/.config/sway/background.png fill
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg path/to/images/background.png fill
 #
 # Example configuration:
 #
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+output HDMI-A-1 {
+	resolution 1920x1080
+	position 0 100
+}
+
+output DP-1 {
+	resolution 1920x1080
+	position 1920 0
+}
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -208,10 +217,8 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
-	# Screenshot a monitor
-	bindsym Print exec grim - | wl-copy
-	# Screenshot a region
-	bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
+	# Screenshot
+	bindsym Print exec ~/.config/rofi/screenshot/screenshot.sh
 
 #
 # Status Bar:
