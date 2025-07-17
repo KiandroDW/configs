@@ -26,7 +26,7 @@
 ## Credits:
 All these people gave me much inspiration (and code) for my config. Some of my
 configs are almost exact copies while others were more to work out an idea.
-* nvim: [BWindey](github.com/BWindey/nvim-config)
+* nvim: [BWindey](https://github.com/BWindey/nvim-config)
 * rofi (app launcher/wifi): [niraj998](https://github.com/niraj998/Rofi-Scripts)
 * sddm: [POP303U](https://github.com/POP303U/rose-pine-sddm)
 * spicetify: [Comfy-Themes](https://github.com/Comfy-Themes/Spicetify)
